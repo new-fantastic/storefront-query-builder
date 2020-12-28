@@ -318,8 +318,8 @@ export default class RequestBody {
             }
             this.queryChain
               .aggregation('terms', field)
-              .aggregation('max', 'price')
-              .aggregation('min', 'price')
+              .aggregation('max', 'price', { field: 'final_price' })
+              .aggregation('min', 'price', { field: 'final_price' })
               .aggregation('range', 'price', {
                 ranges: [
                   ...config.priceFilters.ranges,
